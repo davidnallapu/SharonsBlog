@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <section class="column large-full entry format-standard">
+
+                    <div class="media-wrap">
+                        <div>
+                            <img src="{% static 'images/eco.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                    <p class="lead drop-cap">
+                        We have enslaved ourselves to an economic system where dreams are too expensive and some remain indebted their entire lives while others buy what they don't need.
+                    </p>
+
+                    <p>
+                        We see the impact of economics all around us. This blog is an initiative to add to the discourse on the implications of important economic issues. This includes environment, finance, policy formation, development, trade, technology and migration. 
+                    </p>
+
+                    <h3 class="h2">Get In Touch</h3>
+        
+                    <form name="contactForm" id="contactForm" action="{% url 'support' %}" method="POST" autocomplete="off">
+                        {% csrf_token %}
+                        <fieldset>
+                            <div class="form-field">
+                                <input name="cName" id="cName" class="full-width" placeholder="Your Name" value="" type="text">
+                            </div>
+    
+                            <div class="form-field">
+                                <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email" value="" type="text">
+                            </div>
+    
+                            <div class="form-field">
+                                <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
+                            </div>
+    
+                            <div class="message form-field">
+                                <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                            </div>
+    
+                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Send Message" type="submit">
+    
+                        </fieldset>
+                    </form> <!-- end form -->
+
+                </section>
+
+            </main>
+
+        </div> <!-- end s-content -->
+        {% endblock %}

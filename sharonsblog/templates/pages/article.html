@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                <article class="column large-full entry format-standard">
+                    <div class="media-wrap entry__media">
+                        <div class="entry__post-thumb">
+                            <img src="{{article.image1}}" sizes="(max-width: 500px) 100vw, 2000px" style="position: center;padding-left: 20%; padding-right: 20%;"  alt="">
+                        </div>
+                    </div>
+                    <div class="content__page-header entry__header">
+                        <h1 class="display-1 entry__title">
+                            {{article.title}}
+                        </h1>
+                        <ul class="entry__header-meta">
+                            <li class="author">By <a>{{article.author}}</a></li>
+                            <li class="date">{{article.date}}</li>
+                            <li class="cat-links">
+                                <a>{{article.category1}}</a>
+                                {% if article.category2 %}
+                                <a >{{article.category2}}</a>
+                                {% endif %}
+                                {% if article.category2 %}
+                                <a >{{article.category3}}</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+                    </div> <!-- end entry__header -->
+
+                    <div class="entry__content">
+
+                        <p class="lead drop-cap">
+                        {{article.short}}
+
+                        </p>
+
+                        <p>
+                        {{article.desc}}
+                        </p>
+
+                </article> <!-- end column large-full entry-->
+
+            </main>
+
+        </div> <!-- end s-content -->
+
+
+  
+
+    </div> <!-- end s-wrap -->
+{% endblock %}

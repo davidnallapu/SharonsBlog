@@ -1,0 +1,1 @@
+web: gunicorn sharonsblog.wsgi —-log-file -

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+        <!-- site content
+        ================================================== -->
+        <div class="s-content content">
+            <main class="row content__page">
+                <h1 class="content__page-header entry__header display-1 entry__title">
+                    Podcasts
+                    </h1>
+                    {% if podcasts %}
+                <article class="column large-full entry format-audio">
+                    {% for podcast in podcasts %}
+                    <div class="media-wrap entry__media">
+                        <h2>{{podcast.title}}</h2>
+                        <p>{{podcast.short}}</p>
+                        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{podcast.link}}"></iframe>
+                        <ul class="entry__header-meta">
+                            <li class="author">By <a href="#0">{{podcast.author}}</a></li>
+                            <li class="date">{{podcast.date}}</li>
+                            <li class="cat-links">
+                                <a href="#0">{{podcast.category}}</a>
+                            </li>
+                        </ul>
+                    </div>
+              <hr>
+              {% endfor %}
+                </article> <!-- end column large-full entry-->
+               
+                {% endif %}
+                
+
+            </main>
+            <div class="row">
+                <div class="column large-full">
+                    {% if podcasts.has_other_pages%}
+                    <nav class="pgn">
+                        <ul>
+                            {% if podcasts.has_previous %}
+                            <li><a class="pgn__prev" href="?page={{podcasts.previous_page_number}}">Prev</a></li>
+                            {% endif %}
+                            {% for i in podcasts.paginator.page_range %}
+                            {% if podcasts.number == i %}
+                            <li><span class="pgn__num current">{{i}}</span></li>
+                            {% else %}
+                                <li>
+                                <a href = "?page={{i}}" class="pgn__num">{{i}}</a>
+                                </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% if podcasts.has_next %}
+                            <li><a class="pgn__next" href="?page={{podcasts.next_page_number}}">Next</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div> <!-- end s-content -->
+
+
+    </div> <!-- end s-wrap -->
+
+
+{% endblock %}
